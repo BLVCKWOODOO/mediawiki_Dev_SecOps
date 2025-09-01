@@ -61,6 +61,6 @@ jobs:
       - uses: SonarSource/sonarcloud-github-action@master
         with:
           organization: BLVCKWOODOO  # точно как в SonarCloud
-          projectKey: BLVCKWOODOO_mediawiki_DevSecOps
+          projectKey: BLVCKWOODOO_mediawiki_Dev_SecOps
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
