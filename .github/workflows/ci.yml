@@ -51,16 +51,3 @@ jobs:
         with:
           name: localsettings
           path: LocalSettings.php
-
-  sonarcloud:
-    name: Analyze on SonarCloud
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-      - uses: SonarSource/sonarcloud-github-action@master
-        with:
-          organization: BLVCKWOODOO  # точно как в SonarCloud
-          projectKey: BLVCKWOODOO_mediawiki_Dev_SecOps
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
