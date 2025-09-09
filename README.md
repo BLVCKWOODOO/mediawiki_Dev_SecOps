@@ -1,35 +1,108 @@
-# MediaWiki
+# 🎓 DevSecOps диплом на основе MediaWiki
 
-MediaWiki is a free and open-source wiki software package written in PHP. It
-serves as the platform for Wikipedia and the other Wikimedia projects, used
-by hundreds of millions of people each month. MediaWiki is localised in over
-350 languages and its reliability and robust feature set have earned it a large
-and vibrant community of third-party users and developers.
+![GitHub last commit](https://img.shields.io/github/last-commit/BLVCKWOODOO/mediawiki_DevSecOps?style=flat-square)
+![GitHub workflow status](https://img.shields.io/github/actions/workflow/status/BLVCKWOODOO/mediawiki_DevSecOps/ci.yml?style=flat-square)
+![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)
 
-MediaWiki is:
+## 📘 Описание
 
-* feature-rich and extensible, both on-wiki and with hundreds of extensions;
-* scalable and suitable for both small and large sites;
-* simple to install, working on most hardware/software combinations; and
-* available in your language.
+Этот репозиторий содержит реализацию дипломного проекта по специальности **"Информационная безопасность"** в рамках трека **DevSecOps**.  
+В качестве целевой платформы выбран [MediaWiki](https://www.mediawiki.org/) — популярная система управления вики-контентом.
 
-For system requirements, installation, and upgrade details, see the files
-RELEASE-NOTES, INSTALL, and UPGRADE.
+Форк проекта: [BLVCKWOODOO/mediawiki_DevSecOps](https://github.com/BLVCKWOODOO/mediawiki_DevSecOps)
 
-* Ready to get started?
-  * https://www.mediawiki.org/wiki/Special:MyLanguage/Download
-* Setting up your local development environment?
-  * https://www.mediawiki.org/wiki/Local_development_quickstart
-* Looking for the technical manual?
-  * https://www.mediawiki.org/wiki/Special:MyLanguage/Manual:Contents
-* Seeking help from a person?
-  * https://www.mediawiki.org/wiki/Special:MyLanguage/Communication
-* Looking to file a bug report or a feature request?
-  * https://bugs.mediawiki.org/
-* Interested in helping out?
-  * https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute
+---
 
-MediaWiki is the result of global collaboration and cooperation. The CREDITS
-file lists technical contributors to the project. The COPYING file explains
-MediaWiki's copyright and license (GNU General Public License, version 2 or
-later). Many thanks to the Wikimedia community for testing and suggestions.
+## 🎯 Цель проекта
+
+Продемонстрировать внедрение полного DevSecOps-конвейера, включающего:
+
+- CI/CD пайплайн на GitHub Actions
+- Интеграцию с инструментами безопасной разработки
+- Реализацию сканеров безопасности (SAST, DAST)
+- Проверку конфигураций и секретов (Security Checks)
+- Security Gateway с блокировкой сборки при наличии уязвимостей
+
+---
+
+## 🛠 Реализованные этапы
+
+### ✅ Этап 1. Установка MediaWiki
+- Поднята виртуальная машина с Ubuntu
+- Установлены необходимые зависимости: PHP, MariaDB, NGINX
+- Настроена база данных и веб-сервер
+- Выполнена ручная установка MediaWiki
+
+### ✅ Этап 2. CI/CD
+- Реализован CI на GitHub Actions
+- Линтинг кода
+- Установка зависимостей через Composer
+- Интеграция с CodeQL
+- Артефакты: отчёты, конфиги
+
+### ✅ Этап 3. SAST
+- Статический анализ с использованием **Psalm**
+- Результаты в формате SARIF
+- Интеграция с GitHub Code Scanning
+
+### ✅ Этап 4. DAST
+- Динамическое сканирование с использованием **OWASP ZAP**
+- Результаты сканирования сохраняются в `zap-reports/zap-report.html`
+
+### ✅ Этап 5. Security Checks
+- Проверка зависимостей через `PHP Security Checker`
+- Включена проверка секретов с помощью **GitHub Secret Scanning**
+
+### ✅ Этап 6. Security Gateway
+- Остановка сборки при наличии ошибок SAST/DAST
+- Генерация рекомендаций и отчётов
+- Возможность внедрения комментариев в PR/MR (опционально)
+
+---
+
+## 📁 Структура проекта
+
+```
+mediawiki_DevSecOps/
+├── .github/workflows/        # CI/CD пайплайн (GitHub Actions)
+├── zap-reports/              # Отчёты DAST-сканирования
+├── psalm-report.sarif        # SARIF-отчёт SAST (Psalm)
+├── composer.json             # Зависимости PHP
+├── LocalSettings.php         # Конфигурация MediaWiki (локально)
+└── README.md                 # Этот файл
+```
+
+---
+
+## 🚀 Как запустить
+
+### 1. Установите зависимости:
+
+```bash
+composer install
+```
+
+### 2. Запустите MediaWiki локально (примерный стек: NGINX + PHP + MariaDB)
+
+### 3. Запустите Psalm для статического анализа:
+
+```bash
+vendor/bin/psalm --output-format=sarif --report=psalm-report.sarif
+```
+
+### 4. Проведите DAST-сканирование вручную через OWASP ZAP
+
+---
+
+## 📜 Лицензия
+
+Этот проект доступен под лицензией [MIT](LICENSE)
+
+---
+
+## 📌 Автор диплома
+
+**Кирилл Колодкин**  
+Трек: DevSecOps  
+Учебное заведение: Нетология  
+2025 год
