@@ -107,7 +107,8 @@
 		"wikimedia/alea": "1.0.0",
 		"wikimedia/langconv": "^0.5.0",
 		"wikimedia/testing-access-wrapper": "^3.0.0",
-		"wmde/hamcrest-html-matchers": "^1.0.0"
+		"wmde/hamcrest-html-matchers": "^1.0.0",
+		"vimeo/psalm": "^6.7"
 	},
 	"replace": {
 		"krinkle/intuition": "2.3.99",
