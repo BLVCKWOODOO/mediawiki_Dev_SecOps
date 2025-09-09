@@ -1,7 +1,5 @@
 # 🎓 DevSecOps диплом на основе MediaWiki
 
-![GitHub last commit](https://img.shields.io/github/last-commit/BLVCKWOODOO/mediawiki_DevSecOps?style=flat-square)
-![GitHub workflow status](https://img.shields.io/github/actions/workflow/status/BLVCKWOODOO/mediawiki_DevSecOps/ci.yml?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)
 
 ## 📘 Описание
