@@ -69,11 +69,6 @@ jobs:
           name: psalm-sarif-report
           path: psalm-report/psalm-report.sarif
 
-      - name: Run ZAP scan
-        run: |
-          mkdir -p zap-output
-          ./tools/zap/zap.sh -cmd -quickurl http://localhost/mediawiki -quickout zap-output/zap-report.html
-
       - name: Upload ZAP HTML report
         uses: actions/upload-artifact@v4
         with:
