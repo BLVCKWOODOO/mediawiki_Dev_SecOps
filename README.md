@@ -7,7 +7,6 @@
 Этот репозиторий содержит реализацию дипломного проекта по специальности **"Информационная безопасность"** в рамках трека **DevSecOps**.  
 В качестве целевой платформы выбран [MediaWiki](https://www.mediawiki.org/) — популярная система управления вики-контентом.
 
-Форк проекта: [BLVCKWOODOO/mediawiki_DevSecOps](https://github.com/BLVCKWOODOO/mediawiki_DevSecOps)
 
 ---
 
