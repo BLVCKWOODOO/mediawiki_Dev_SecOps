@@ -53,10 +53,29 @@ jobs:
           path: LocalSettings.php
 
       - name: Run Psalm SAST scan
-        run: vendor/bin/psalm --output-format=sarif --report=psalm-report.sarif
+        run: |
+          mkdir -p psalm-report
+          vendor/bin/psalm --output-format=sarif --report=psalm-report/psalm-report.sarif
 
-      - name: Upload SARIF report to GitHub
+      - name: Upload Psalm SARIF to GitHub Security
         uses: github/codeql-action/upload-sarif@v2
         with:
-          sarif_file: psalm-report.sarif
+          sarif_file: psalm-report/psalm-report.sarif
+
+      - name: Upload Psalm SARIF as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: psalm-sarif-report
+          path: psalm-report/psalm-report.sarif
+
+      - name: Run ZAP scan
+        run: |
+          mkdir -p zap-output
+          ./tools/zap/zap.sh -cmd -quickurl http://localhost/mediawiki -quickout zap-output/zap-report.html
+
+      - name: Upload ZAP HTML report
+        uses: actions/upload-artifact@v4
+        with:
+          name: zap-html-report
+          path: zap-output/zap-report.html
 
